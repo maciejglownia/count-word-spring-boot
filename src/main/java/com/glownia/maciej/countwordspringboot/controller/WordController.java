@@ -31,7 +31,7 @@ public class WordController {
         return new CountedWordResponse(countedWord);
     }
 
-    private boolean checkIfWordContainsAllowedCharacters(String word) {
+    public boolean checkIfWordContainsAllowedCharacters(String word) {
         return word.matches("[a-zA-Z]*");
     }
 }
