@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class WordServiceTest {
@@ -18,7 +18,7 @@ class WordServiceTest {
     public void testCountWordMassachusetts() {
         // [[M, 1], [a, 2], [s, 4], [c, 1], [h, 1], [u, 1], [e, 1], [t, 2]]
         String word = "Massachusetts";
-        List<List<String>> result = wordService.countNumbersOfCharsInWord(word);
+        List<List<String>> result = wordService.countNumbersOfLettersInWord(word);
         List<List<String>> expectedResult = List.of(
                 List.of("M", "1"),
                 List.of("a", "2"),
@@ -35,7 +35,7 @@ class WordServiceTest {
     public void testCountWordMunicipalities() {
         // [[m, 1], [u, 1], [n, 1], [i, 4], [c, 1], [p, 1], [a, 1], [l, 1], [t, 1], [e, 1], [s, 1]]
         String word = "municipalities";
-        List<List<String>> result = wordService.countNumbersOfCharsInWord(word);
+        List<List<String>> result = wordService.countNumbersOfLettersInWord(word);
         List<List<String>> expectedResult = List.of(
                 List.of("m", "1"),
                 List.of("u", "1"),
@@ -56,7 +56,7 @@ class WordServiceTest {
     public void testCountWordCustomization() {
         // [[C, 1], [u, 1], [s, 1], [t, 2], [o, 2], [m, 1], [i, 2], [z, 1], [a, 1], [n, 1]]
         String word = "Customization";
-        List<List<String>> result = wordService.countNumbersOfCharsInWord(word);
+        List<List<String>> result = wordService.countNumbersOfLettersInWord(word);
         List<List<String>> expectedResult = List.of(
                 List.of("C", "1"),
                 List.of("u", "1"),

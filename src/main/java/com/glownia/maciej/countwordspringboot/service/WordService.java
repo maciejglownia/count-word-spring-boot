@@ -14,7 +14,8 @@ import java.util.stream.Collectors;
  */
 @Service
 public class WordService {
-    public List<List<String>> countNumbersOfCharsInWord(String word) {
+
+    public List<List<String>> countNumbersOfLettersInWord(String word) {
         return createListOfListRepresentsCountedLettersOfWordInOrderOfTheirAppearance(word);
     }
 
@@ -23,7 +24,7 @@ public class WordService {
                 countLetters(word);
 
         List<List<String>> listOfList = new ArrayList<>();
-        for (Character c: countedLetters.keySet()) {
+        for (Character c : countedLetters.keySet()) {
             listOfList.add(List.of(c.toString(), String.valueOf(countedLetters.get(c))));
         }
         return listOfList;
@@ -34,8 +35,8 @@ public class WordService {
                 .mapToObj(c -> (char) c)
                 .collect(
                         Collectors.toMap(Function.identity(),
-                        counter -> 1,
-                        Integer::sum,
-                        LinkedHashMap::new));
+                                counter -> 1,
+                                Integer::sum,
+                                LinkedHashMap::new));
     }
 }

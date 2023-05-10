@@ -23,11 +23,14 @@ public class WordController {
 
     @PostMapping("/count-word")
     public CountedWordResponse countNumbersOfLettersInWord(@RequestBody Map<String, String> countThis) {
+
         String word = countThis.get("countThis");
         if (!checkIfWordContainsAllowedCharacters(word)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
-        List<List<String>> countedWord = wordService.countNumbersOfCharsInWord(word);
+
+        List<List<String>> countedWord = wordService.countNumbersOfLettersInWord(word);
+
         return new CountedWordResponse(countedWord);
     }
 
